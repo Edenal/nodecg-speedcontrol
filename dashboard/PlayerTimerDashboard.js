@@ -9,7 +9,7 @@ $(function () {
 // Replicant initialization
 
     var stopWatchesReplicant = nodecg.Replicant('stopwatches');
-    stopWatchesReplicant.on('change', function (oldVal, newVal) {
+    stopWatchesReplicant.on('change', function (newVal, oldVal) {
         if (!newVal) return;
         var time = newVal[0].time || '88:88:88';
         switch (newVal[0].state) {
@@ -62,7 +62,7 @@ $(function () {
     });
 
     var runDataActiveRunRunnerListReplicant = nodecg.Replicant("runDataActiveRunRunnerList");
-    runDataActiveRunRunnerListReplicant.on("change", function (oldValue, newValue) {
+    runDataActiveRunRunnerListReplicant.on("change", function (newValue, oldValue) {
         if (typeof newValue !== 'undefined' && newValue != '') {
             playerTimer_UpdateTimers(newValue);
             if(newValue.length > 1) {

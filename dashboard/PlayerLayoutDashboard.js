@@ -2,7 +2,7 @@
 $(function () {
 // Replicant initialization
     var runDataActiveRunRunnerListReplicant = nodecg.Replicant("runDataActiveRunRunnerList");
-    runDataActiveRunRunnerListReplicant.on("change", function (oldValue, newValue) {
+    runDataActiveRunRunnerListReplicant.on("change", function (newValue, oldValue) {
         if (typeof newValue !== 'undefined' && newValue != '') {
             playerLayout_UpdateLayoutPanel(newValue);
         }

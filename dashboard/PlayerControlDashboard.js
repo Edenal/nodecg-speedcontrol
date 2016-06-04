@@ -22,18 +22,18 @@ $(function () {
 
 // Initialize replicants we will use
     var runDataArrayReplicant = nodecg.Replicant("runDataArray");
-    runDataArrayReplicant.on("change", function (oldValue, newValue) {
+    runDataArrayReplicant.on("change", function (newValue, oldValue) {
     });
 
     var runDataLastIDReplicant = nodecg.Replicant("runDataLastID");
-    runDataLastIDReplicant.on("change", function (oldValue, newValue) {
+    runDataLastIDReplicant.on("change", function (newValue, oldValue) {
         if (typeof newValue === 'undefined') {
             runDataLastIDReplicant.value = 1;
         }
     });
 
     var runDataActiveRunReplicant = nodecg.Replicant("runDataActiveRun");
-    runDataActiveRunReplicant.on("change", function (oldValue, newValue) {
+    runDataActiveRunReplicant.on("change", function (newValue, oldValue) {
     });
 
 // Used for input field validation (the "nice" tooltips you get when something is wrong

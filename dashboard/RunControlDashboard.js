@@ -3,7 +3,7 @@ $(function () {
     var blankSlateContainerHtml = $('#run-control-container').html();
 // Initialize replicants we will use
     var runDataArrayReplicant = nodecg.Replicant("runDataArray");
-    runDataArrayReplicant.on("change", function (oldValue, newValue) {
+    runDataArrayReplicant.on("change", function (newValue, oldValue) {
         if (typeof newValue !== 'undefined' && newValue != '') {
             runControl_UpdateList(newValue);
         }
@@ -13,7 +13,7 @@ $(function () {
     });
 
     var runDataEditRunReplicant = nodecg.Replicant("runDataEditRun",{persistent: false});
-    runDataEditRunReplicant.on("change", function (oldValue, newValue) {
+    runDataEditRunReplicant.on("change", function (newValue, oldValue) {
     });
 
     function runControl_GetPlayers(runData) {

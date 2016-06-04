@@ -41,14 +41,14 @@ $(function () {
     });
 
     var runDataActiveRunReplicant = nodecg.Replicant("runDataActiveRun");
-    runDataActiveRunReplicant.on("change", function (oldValue, newValue) {
+    runDataActiveRunReplicant.on("change", function (newValue, oldValue) {
         if(typeof newValue !== 'undefined' && newValue != '' ) {
             updateSceneFields(newValue);
         }
     });
 
     var runDataActiveRunRunnerListReplicant = nodecg.Replicant("runDataActiveRunRunnerList");
-    runDataActiveRunRunnerListReplicant.on("change", function (oldValue, newValue) {
+    runDataActiveRunRunnerListReplicant.on("change", function (newValue, oldValue) {
         if(typeof newValue === 'undefined' || newValue == '') {
             return;
         }

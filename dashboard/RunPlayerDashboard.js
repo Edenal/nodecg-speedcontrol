@@ -6,7 +6,7 @@ $(function () {
     var blankSlateRunContainerHtml = $('#run-player-container').html();
     // Initialize replicants we will use
     var runDataArrayReplicantPlayer = nodecg.Replicant("runDataArray");
-    runDataArrayReplicantPlayer.on("change", function (oldValue, newValue) {
+    runDataArrayReplicantPlayer.on("change", function (newValue, oldValue) {
         if (typeof newValue !== 'undefined' && newValue != "") {
             runPlayer_updateList(newValue);
             setActiveRun(runPlayer_activeRunID);
@@ -17,14 +17,14 @@ $(function () {
     });
 
     var streamControlConfigurationReplicantPlayer = nodecg.Replicant('streamControlConfiguration');
-    streamControlConfigurationReplicantPlayer.on('change', function (oldVal, newVal) {
+    streamControlConfigurationReplicantPlayer.on('change', function (newVal, oldVal) {
         if (newVal != "") {
             syncGamePlayedToTwitch = newVal.synchronizeAutomatically;
         }
     });
 
     var runDataActiveRunReplicant = nodecg.Replicant("runDataActiveRun");
-    runDataActiveRunReplicant.on("change", function (oldValue, newValue) {
+    runDataActiveRunReplicant.on("change", function (newValue, oldValue) {
         if (newValue != "" && typeof newValue !== 'undefined') {
             setActiveRun(newValue.runID);
         }
@@ -33,11 +33,11 @@ $(function () {
     });
 
     var runDataActiveRunRunnerListReplicant = nodecg.Replicant("runDataActiveRunRunnerList");
-    runDataActiveRunRunnerListReplicant.on("change", function (oldValue, newValue) {
+    runDataActiveRunRunnerListReplicant.on("change", function (newValue, oldValue) {
     });
 
     var stopWatchesReplicant = nodecg.Replicant('stopwatches');
-    stopWatchesReplicant.on('change', function (oldVal, newVal) {
+    stopWatchesReplicant.on('change', function (newVal, oldVal) {
         if (!newVal) return;
         switch (newVal[0].state) {
             case 'paused':

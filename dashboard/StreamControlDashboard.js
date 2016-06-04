@@ -13,7 +13,7 @@ $(function () {
         "}\n" +
         "exchange username with the twitch username which you want to access"
     var streamControlConfigurationReplicant = nodecg.Replicant('streamControlConfiguration');
-    streamControlConfigurationReplicant.on('change', function (oldVal, newVal) {
+    streamControlConfigurationReplicant.on('change', function (newVal, oldVal) {
         if (typeof newVal !== 'undefined') {
             if (newVal.synchronizeAutomatically != null && newVal.synchronizeAutomatically == true) {
                 var radio = $('#enableTwitchSynchronizationRadioOn');
